@@ -121,4 +121,4 @@ pullimage_%:
 	docker pull golang:$*
 
 build_docker:
-	KO_DOCKER_REPO=abice/go-enum VERSION=$(GITHUB_REF) COMMIT=$(GITHUB_SHA) DATE=$(DATE) BUILT_BY=$(USER) ko build --bare --local
+	KO_DOCKER_REPO=moderato-app/go-enum VERSION=$(GITHUB_REF) COMMIT=$(GITHUB_SHA) DATE=$(DATE) BUILT_BY=$(USER) ko build --bare --local

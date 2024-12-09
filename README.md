@@ -1,9 +1,9 @@
 # go-enum
 
-[![Actions Status](https://github.com/abice/go-enum/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/abice/go-enum/actions/workflows/build_and_test.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/abice/go-enum)](https://goreportcard.com/report/github.com/abice/go-enum)
-[![Coverage Status](https://coveralls.io/repos/github/abice/go-enum/badge.svg)](https://coveralls.io/github/abice/go-enum)
-[![GoDoc](https://godoc.org/github.com/abice/go-enum?status.svg)](https://godoc.org/github.com/abice/go-enum)
+[![Actions Status](https://github.com/moderato-app/go-enum/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/moderato-app/go-enum/actions/workflows/build_and_test.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/moderato-app/go-enum)](https://goreportcard.com/report/github.com/moderato-app/go-enum)
+[![Coverage Status](https://coveralls.io/repos/github/moderato-app/go-enum/badge.svg)](https://coveralls.io/github/moderato-app/go-enum)
+[![GoDoc](https://godoc.org/github.com/moderato-app/go-enum?status.svg)](https://godoc.org/github.com/moderato-app/go-enum)
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
 
 An enum generator for go
@@ -93,7 +93,7 @@ I took the output of the [Stringer](https://godoc.org/golang.org/x/tools/cmd/str
 You can now use a docker image directly for running the command if you do not wish to install anything!
 
 ```shell
-   docker run -w /app -v $(pwd):/app abice/go-enum:$(GO_ENUM_VERSION)
+   docker run -w /app -v $(pwd):/app moderato-app/go-enum:$(GO_ENUM_VERSION)
 ```
 
 ## Installation
@@ -103,7 +103,7 @@ You can now download a release directly from github and use that for generating 
 I did not specify any overrides on the release binary names, so `uname -s` and `uname -m` should provide the correct version of the binary for your distro.
 
 ```shell
-    curl -fsSL "https://github.com/abice/go-enum/releases/download/$(GO_ENUM_VERSION)/go-enum_$(uname -s)_$(uname -m)" -o go-enum
+    curl -fsSL "https://github.com/moderato-app/go-enum/releases/download/$(GO_ENUM_VERSION)/go-enum_$(uname -s)_$(uname -m)" -o go-enum
 ```
 
 ## Adding it to your project

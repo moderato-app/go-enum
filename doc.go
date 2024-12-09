@@ -10,7 +10,7 @@
 //
 // Installation
 //
-//	go get github.com/abice/go-enum
+//	go get github.com/moderato-app/go-enum
 //
 // Usage:
 // Sample File
