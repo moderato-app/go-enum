@@ -25,6 +25,7 @@ type rootT struct {
 	Lowercase         bool
 	NoCase            bool
 	Marshal           bool
+	MarshalInt        bool
 	SQL               bool
 	SQLInt            bool
 	Flag              bool
@@ -86,6 +87,11 @@ func main() {
 				Name:        "marshal",
 				Usage:       "Adds text (and inherently json) marshalling functions.",
 				Destination: &argv.Marshal,
+			},
+			&cli.BoolFlag{
+				Name:        "marshalint",
+				Usage:       "Marshal to int and unmarshal from int. It overrides the --marshal flag.",
+				Destination: &argv.MarshalInt,
 			},
 			&cli.BoolFlag{
 				Name:        "sql",
@@ -208,6 +214,9 @@ func main() {
 				}
 				if argv.Marshal {
 					g.WithMarshal()
+				}
+				if argv.MarshalInt {
+					g.WithMarshalInt()
 				}
 				if argv.SQL {
 					g.WithSQLDriver()

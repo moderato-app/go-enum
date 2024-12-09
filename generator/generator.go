@@ -39,6 +39,7 @@ type Generator struct {
 	lowercaseLookup   bool
 	caseInsensitive   bool
 	marshal           bool
+	marshalInt        bool
 	sql               bool
 	sqlint            bool
 	flag              bool
@@ -131,6 +132,12 @@ func (g *Generator) WithCaseInsensitiveParse() *Generator {
 // WithMarshal is used to add marshalling to the enum
 func (g *Generator) WithMarshal() *Generator {
 	g.marshal = true
+	return g
+}
+
+// WithMarshalInt is used to add marshalling(from and to int) to the enum
+func (g *Generator) WithMarshalInt() *Generator {
+	g.marshalInt = true
 	return g
 }
 
@@ -324,6 +331,7 @@ func (g *Generator) Generate(f *ast.File) ([]byte, error) {
 			"nocase":        g.caseInsensitive,
 			"nocomments":    g.noComments,
 			"marshal":       g.marshal,
+			"marshalint":    g.marshalInt,
 			"sql":           g.sql,
 			"sqlint":        g.sqlint,
 			"flag":          g.flag,

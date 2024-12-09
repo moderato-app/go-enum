@@ -155,6 +155,7 @@ GLOBAL OPTIONS:
    --lower                                                    Adds lowercase variants of the enum strings for lookup. (default: false)
    --nocase                                                   Adds case insensitive parsing to the enumeration (forces lower flag). (default: false)
    --marshal                                                  Adds text (and inherently json) marshalling functions. (default: false)
+   --marshalint                                               Marshal to int and unmarshal from int. It overrides the --marshal flag. (default: false)
    --sql                                                      Adds SQL database scan and value functions. (default: false)
    --sqlint                                                   Tells the generator that a string typed enum should be stored in sql as an integer value. (default: false)
    --flag                                                     Adds golang flag functions. (default: false)
