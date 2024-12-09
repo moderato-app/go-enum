@@ -14,7 +14,7 @@ package {{.package}}
 import (
     "fmt"
 {{ if .marshalint }}
-    "strconv"
+    "json"
 {{ end }}
 )
 {{end -}}
@@ -110,6 +110,32 @@ func (x *{{.enum.Name}}) UnmarshalText(text []byte) error {
 {{end}}
 
 {{ if .marshalint }}
+
+func (x {{.enum.Name}}) MarshalJSON() ([]byte, error) {
+	_, ok := _{{.enum.Name}}Map[x]
+	if !ok {
+		return nil, ErrInvalid{{.enum.Name}}
+	}
+	return json.Marshal(int(x))
+}
+
+func (x *{{.enum.Name}}) UnmarshalJSON(data []byte) error {
+	var number int
+	if err := json.Unmarshal(data, &number); err != nil {
+		return fmt.Errorf("{{.enum.Name}} should be a number: %w", err)
+	}
+
+	tmp := {{.enum.Name}}(number)
+	_, ok := _{{.enum.Name}}Map[tmp]
+
+	if !ok {
+		return ErrInvalid{{.enum.Name}}
+	}
+
+	*x = tmp
+	return nil
+}
+
 // MarshalText implements the text marshaller method.
 func (x {{.enum.Name}}) MarshalText() (int, error) {
 	return int(x), nil
